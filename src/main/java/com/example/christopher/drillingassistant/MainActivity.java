@@ -21,11 +21,11 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity {
 
     //create a constant
-    public static final String EXTRA_NUMBER0 = "com.example.christopher.drillingassistent.EXTRA_TEXT";
-    public static final String EXTRA_NUMBER1 = "com.example.christopher.drillingassistent.EXTRA_TEXT";
-    public static final String EXTRA_NUMBER2 = "com.example.christopher.drillingassistent.EXTRA_TEXT";
-    public static final String EXTRA_NUMBER3 = "com.example.christopher.drillingassistent.EXTRA_TEXT";
-    public static final String EXTRA_NUMBER4 = "com.example.christopher.drillingassistent.EXTRA_TEXT";
+    public static final String EXTRA_NUMBER0 = "com.example.christopher.drillingassistent.EXTRA_TEXT0";
+    public static final String EXTRA_NUMBER1 = "com.example.christopher.drillingassistent.EXTRA_TEXT1";
+    public static final String EXTRA_NUMBER2 = "com.example.christopher.drillingassistent.EXTRA_TEXT2";
+    public static final String EXTRA_NUMBER3 = "com.example.christopher.drillingassistent.EXTRA_TEXT3";
+    public static final String EXTRA_NUMBER4 = "com.example.christopher.drillingassistent.EXTRA_TEXT4";
 
     private RadioGroup radioGroup;
     private RadioButton radioButton;
@@ -112,21 +112,38 @@ public class MainActivity extends AppCompatActivity {
 
         //saves the user input into variables
 
-        int number_length = Integer.parseInt(input_length.getText().toString());
-        intent.putExtra(EXTRA_NUMBER0, number_length);
+        if(radioButton.getId() == holes.getId()){
+            int number_length = Integer.parseInt(input_length.getText().toString());
+            int number_width = Integer.parseInt(input_width.getText().toString());
+            int number_distance = Integer.parseInt(input_distance.getText().toString());
+            int number_diameter = Integer.parseInt(input_diameter.getText().toString());
+            intent.putExtra(EXTRA_NUMBER0, number_length);
+            intent.putExtra(EXTRA_NUMBER1, number_width);
+            intent.putExtra(EXTRA_NUMBER3, number_distance);
+            intent.putExtra(EXTRA_NUMBER4, number_diameter);
+        }
 
-        int number_width = Integer.parseInt(input_width.getText().toString());
-        intent.putExtra(EXTRA_NUMBER1, number_width);
+        if(radioButton.getId() == distance.getId()){
+            int number_length = Integer.parseInt(input_length.getText().toString());
+            int number_width = Integer.parseInt(input_width.getText().toString());
+            int number_holes = Integer.parseInt(input_holes.getText().toString());
+            int number_diameter = Integer.parseInt(input_diameter.getText().toString());
+            intent.putExtra(EXTRA_NUMBER0, number_length);
+            intent.putExtra(EXTRA_NUMBER1, number_width);
+            intent.putExtra(EXTRA_NUMBER2, number_holes);
+            intent.putExtra(EXTRA_NUMBER4, number_diameter);
+        }
 
-       /* int number_holes = Integer.parseInt(input_holes.getText().toString());
-        intent.putExtra(EXTRA_NUMBER2, number_holes);
-
-        int number_distance = Integer.parseInt(input_distance.getText().toString());
-        intent.putExtra(EXTRA_NUMBER3, number_distance);
-
-        int number_diameter = Integer.parseInt(input_diameter.getText().toString());
-        intent.putExtra(EXTRA_NUMBER4, number_diameter);*/
-
+        if(radioButton.getId() == diameter.getId()){
+            int number_length = Integer.parseInt(input_length.getText().toString());
+            int number_width = Integer.parseInt(input_width.getText().toString());
+            int number_holes = Integer.parseInt(input_holes.getText().toString());
+            int number_distance = Integer.parseInt(input_distance.getText().toString());
+            intent.putExtra(EXTRA_NUMBER0, number_length);
+            intent.putExtra(EXTRA_NUMBER1, number_width);
+            intent.putExtra(EXTRA_NUMBER2, number_holes);
+            intent.putExtra(EXTRA_NUMBER3, number_distance);
+        }
         startActivity(intent);
 
     }
