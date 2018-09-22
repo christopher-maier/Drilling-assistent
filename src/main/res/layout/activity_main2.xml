@@ -52,4 +52,31 @@
         android:layout_marginTop="214dp"
         android:text="TextView" />
 
+    <TextView
+        android:id="@+id/result_holes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignStart="@+id/text_length"
+        android:layout_marginBottom="190dp"
+        android:text="TextView" />
+
+    <TextView
+        android:id="@+id/result_distance"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignStart="@+id/text_length"
+        android:layout_marginBottom="159dp"
+        android:text="TextView" />
+
+    <TextView
+        android:id="@+id/result_diameter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignStart="@+id/text_length"
+        android:layout_marginBottom="123dp"
+        android:text="TextView" />
+
 </RelativeLayout>
