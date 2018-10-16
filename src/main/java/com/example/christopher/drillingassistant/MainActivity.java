@@ -37,6 +37,8 @@ public class MainActivity extends AppCompatActivity {
     protected EditText input_diameter;
     protected EditText input_length;
     protected EditText input_width;
+    protected EditText input_edgeLength;
+    protected EditText input_edgeWidth;
     private Button buttonApply;
 
     @Override
@@ -69,6 +71,12 @@ public class MainActivity extends AppCompatActivity {
 
         input_width = findViewById(R.id.input_width);
         input_width.addTextChangedListener(boardInputTextWatcher);
+
+        input_edgeLength = findViewById(R.id.input_edgeLength);
+        input_edgeLength.addTextChangedListener(boardInputTextWatcher);
+
+        input_edgeWidth = findViewById(R.id.input_edgeWidth);
+        input_edgeWidth.addTextChangedListener(boardInputTextWatcher);
     }
 
       public void radioButtonClicked(View v){
@@ -158,10 +166,12 @@ public class MainActivity extends AppCompatActivity {
         public void onTextChanged(CharSequence s, int start, int before, int count) {
             String string_length = input_length.getText().toString().trim();
             String string_width = input_width.getText().toString().trim();
+            String string_edgeLength = input_edgeLength.getText().toString().trim();
+            String string_edgeWidth = input_edgeWidth.getText().toString().trim();
 
-            holes.setEnabled(!string_length.isEmpty() && !string_width.isEmpty());
-            distance.setEnabled(!string_length.isEmpty() && !string_width.isEmpty());
-            diameter.setEnabled(!string_length.isEmpty() && !string_width.isEmpty());
+            holes.setEnabled(!string_length.isEmpty() && !string_width.isEmpty() && !string_edgeLength.isEmpty() && !string_edgeWidth.isEmpty());
+            distance.setEnabled(!string_length.isEmpty() && !string_width.isEmpty() && !string_edgeLength.isEmpty() && !string_edgeWidth.isEmpty());
+            diameter.setEnabled(!string_length.isEmpty() && !string_width.isEmpty() && !string_edgeLength.isEmpty() && !string_edgeWidth.isEmpty());
         }
 
         @Override
