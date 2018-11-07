@@ -5,17 +5,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
-import android.widget.TextView;
 import android.widget.Toast;
-
 
 
 public class MainActivity extends AppCompatActivity {
@@ -26,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
     public static final String EXTRA_NUMBER2 = "com.example.christopher.drillingassistent.EXTRA_TEXT2";
     public static final String EXTRA_NUMBER3 = "com.example.christopher.drillingassistent.EXTRA_TEXT3";
     public static final String EXTRA_NUMBER4 = "com.example.christopher.drillingassistent.EXTRA_TEXT4";
+    public static final String EXTRA_NUMBER5 = "com.example.christopher.drillingassistent.EXTRA_TEXT5";
 
     private RadioGroup radioGroup;
     private RadioButton radioButton;
@@ -40,6 +36,9 @@ public class MainActivity extends AppCompatActivity {
     protected EditText input_edgeLength;
     protected EditText input_edgeWidth;
     private Button buttonApply;
+
+    private DataObject dataObject = DataObject.getInstance();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -125,10 +124,18 @@ public class MainActivity extends AppCompatActivity {
             int number_width = Integer.parseInt(input_width.getText().toString());
             int number_distance = Integer.parseInt(input_distance.getText().toString());
             int number_diameter = Integer.parseInt(input_diameter.getText().toString());
+            int i = 1;
             intent.putExtra(EXTRA_NUMBER0, number_length);
             intent.putExtra(EXTRA_NUMBER1, number_width);
             intent.putExtra(EXTRA_NUMBER3, number_distance);
             intent.putExtra(EXTRA_NUMBER4, number_diameter);
+            intent.putExtra(EXTRA_NUMBER5, i);
+
+            dataObject.setLength(number_length);
+            dataObject.setWidth(number_width);
+            dataObject.setHoles(0);
+            dataObject.setDistance(number_distance);
+            dataObject.setDiameter(number_diameter);
         }
 
         if(radioButton.getId() == distance.getId()){
@@ -136,10 +143,18 @@ public class MainActivity extends AppCompatActivity {
             int number_width = Integer.parseInt(input_width.getText().toString());
             int number_holes = Integer.parseInt(input_holes.getText().toString());
             int number_diameter = Integer.parseInt(input_diameter.getText().toString());
+            int i = 2;
             intent.putExtra(EXTRA_NUMBER0, number_length);
             intent.putExtra(EXTRA_NUMBER1, number_width);
             intent.putExtra(EXTRA_NUMBER2, number_holes);
             intent.putExtra(EXTRA_NUMBER4, number_diameter);
+            intent.putExtra(EXTRA_NUMBER5, i);
+
+            dataObject.setLength(number_length);
+            dataObject.setWidth(number_width);
+            dataObject.setHoles(number_holes);
+            dataObject.setDistance(0);
+            dataObject.setDiameter(number_diameter);
         }
 
         if(radioButton.getId() == diameter.getId()){
@@ -147,10 +162,18 @@ public class MainActivity extends AppCompatActivity {
             int number_width = Integer.parseInt(input_width.getText().toString());
             int number_holes = Integer.parseInt(input_holes.getText().toString());
             int number_distance = Integer.parseInt(input_distance.getText().toString());
+            int i = 3;
             intent.putExtra(EXTRA_NUMBER0, number_length);
             intent.putExtra(EXTRA_NUMBER1, number_width);
             intent.putExtra(EXTRA_NUMBER2, number_holes);
             intent.putExtra(EXTRA_NUMBER3, number_distance);
+            intent.putExtra(EXTRA_NUMBER5, i);
+
+            dataObject.setLength(number_length);
+            dataObject.setWidth(number_width);
+            dataObject.setHoles(number_holes);
+            dataObject.setDistance(number_distance);
+            dataObject.setDiameter(0);
         }
         startActivity(intent);
 

@@ -1,9 +1,15 @@
 package com.example.christopher.drillingassistant;
 
+import android.content.Context;
 import android.content.Intent;
+import android.graphics.Canvas;
+import android.graphics.Color;
 import android.graphics.Matrix;
+import android.provider.ContactsContract;
+import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.AttributeSet;
 import android.view.Menu;
 import android.view.MotionEvent;
 import android.view.ScaleGestureDetector;
@@ -29,16 +35,11 @@ public class Main2Activity extends AppCompatActivity {
     double holes;
     double distance;
     double diameter;
+    int modeCase;
 
     TextView result_holes;
     TextView result_distance;
     TextView result_diameter;
-
-    private RadioGroup radioGroup;
-    private RadioButton radioButton;
-    private RadioButton radio_holes;
-    private RadioButton radio_distance;
-    private RadioButton radio_diameter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -77,24 +78,16 @@ public class Main2Activity extends AppCompatActivity {
         TextView text_diameter = (TextView) findViewById(R.id.text_diameter);
         text_diameter.setText("max diameter: ");
 
+        result_holes = (TextView) findViewById(R.id.result_holes);
+        result_distance = (TextView) findViewById(R.id.result_distance);
+        result_diameter = (TextView) findViewById(R.id.result_diameter);
+
+        modeCase = intent.getIntExtra(MainActivity.EXTRA_NUMBER5, 0);
+
         params.width = (int) length;
         params.height = (int) width;
 
-        radioGroup = findViewById(R.id.radioGroup);
-
-        radio_holes = findViewById(R.id.radioButtonHoles);
-        radio_distance = findViewById(R.id.radioButtonDistance);
-        radio_diameter = findViewById(R.id.radioButtonDiameter);
-
-        TextView result_holes = (TextView) findViewById(R.id.result_holes);
-        result_holes.setText("I LOVE");
-
-        TextView result_distance = (TextView) findViewById(R.id.result_distance);
-        result_distance.setText("ANDROID");
-
-        TextView result_diameter = (TextView) findViewById(R.id.result_diameter);
-        result_diameter.setText("DEVELOPMENT");
-
+        userRestriction();
     }
 
     private class ScaleListener extends ScaleGestureDetector.SimpleOnScaleGestureListener{
@@ -114,6 +107,31 @@ public class Main2Activity extends AppCompatActivity {
         return true;
     }
 
+    public void userRestriction(){
+        if(modeCase == 1){
+            result_holes.setText("" + (int) maxHoles(length, width, distance, diameter));
+
+            result_distance.setText("" + (int) distance);
+
+            result_diameter.setText("" + (int) diameter);
+        }
+
+        if(modeCase == 2){
+            result_holes.setText("" + (int) holes);
+
+            result_distance.setText("" + (int) maxDistance(length, width, diameter, holes));
+
+            result_diameter.setText("" + (int) diameter);
+        }
+
+        if(modeCase == 3){
+            result_holes.setText("" + (int) holes);
+
+            result_distance.setText("" + (int) distance);
+
+            result_diameter.setText("" + (int) maxDiameter(length, width, distance, holes));
+        }
+    }
 
     public double maxHoles(double length, double width, double distance, double diameter) {
         double i;
@@ -150,4 +168,5 @@ public class Main2Activity extends AppCompatActivity {
         }
         return i;
     }
+
 }
