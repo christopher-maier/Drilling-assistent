@@ -25,11 +25,6 @@ import android.widget.Toast;
 
 public class Main2Activity extends AppCompatActivity {
 
-    ImageView imageView;
-    Matrix matrix = new Matrix();
-    Float scale = 1f;
-    ScaleGestureDetector SGD;
-
     double length;
     double width;
     double holes;
@@ -45,11 +40,6 @@ public class Main2Activity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
-
-        imageView = findViewById(R.id.imageView);
-        ViewGroup.LayoutParams params = imageView.getLayoutParams();
-
-        SGD = new ScaleGestureDetector(this, new ScaleListener());
 
         Intent intent = getIntent();
         length = intent.getIntExtra(MainActivity.EXTRA_NUMBER0, 0);
@@ -84,27 +74,7 @@ public class Main2Activity extends AppCompatActivity {
 
         modeCase = intent.getIntExtra(MainActivity.EXTRA_NUMBER5, 0);
 
-        params.width = (int) length;
-        params.height = (int) width;
-
         userRestriction();
-    }
-
-    private class ScaleListener extends ScaleGestureDetector.SimpleOnScaleGestureListener{
-        @Override
-        public boolean onScale(ScaleGestureDetector detector){
-            scale = scale * detector.getScaleFactor();
-            scale = Math.max(0.1f, Math.min(scale, 5f));
-            matrix.setScale(scale, scale);
-            imageView.setImageMatrix(matrix);
-            return true;
-        }
-    }
-
-    @Override
-    public boolean onTouchEvent(MotionEvent event){
-        SGD.onTouchEvent(event);
-        return true;
     }
 
     public void userRestriction(){

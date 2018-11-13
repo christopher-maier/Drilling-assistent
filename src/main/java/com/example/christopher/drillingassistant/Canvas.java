@@ -21,22 +21,9 @@ public class Canvas extends View{
     double distance = dataObject.getDistance();
     double diameter = dataObject.getDiameter();
 
-    private Rect rectangle;
-    private Paint paint;
-
     public Canvas(Context context) {
         super(context);
         init(null);
-
-        int x = 50;
-        int y = 50;
-
-        // create a rectangle that we'll draw later
-        rectangle = new Rect(x, y, (int) length,(int) width);
-
-        // create the Paint and set its color
-        paint = new Paint();
-        paint.setColor(Color.GRAY);
     }
 
     public Canvas(Context context, @Nullable AttributeSet attrs) {
@@ -60,7 +47,18 @@ public class Canvas extends View{
 
     @Override
     protected void onDraw(android.graphics.Canvas canvas) {
-        canvas.drawColor(Color.RED);
-        //canvas.drawRect(rectangle, paint);
+        canvas.drawColor(Color.parseColor("#43516c"));
+
+        Rect rect = new Rect();
+        rect.left = (int) ((canvas.getWidth() - length) / 2);
+        rect.top = (int) ((canvas.getHeight() - width) / 2);
+        rect.right = rect.left + 900;
+        rect.bottom = rect.top + 700;
+
+        Paint paint = new Paint();
+        paint.setColor(Color.parseColor("#cc6699"));
+
+        canvas.drawRect(rect, paint);
+
     }
 }

@@ -7,36 +7,23 @@
     android:layout_height="match_parent"
     android:background="#FFFFFF"
     tools:context=".Main2Activity"
-    tools:layout_editor_absoluteY="81dp">
-
+    tools:layout_editor_absoluteY="0dp">
+    
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="277dp">
+        android:layout_height="match_parent">
 
         <com.example.christopher.drillingassistant.Canvas
             android:layout_width="match_parent"
-            android:layout_height="277dp" />
-
+            android:layout_height="370dp" />
+        
     </RelativeLayout>
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="305dp"
-        android:layout_height="185dp"
-
-        android:scaleType="matrix"
-        android:src="@drawable/board"
-        app:layout_constraintBottom_toTopOf="@+id/DetailLayout"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/guideline"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/board" />
 
     <android.support.constraint.ConstraintLayout
         android:id="@+id/DetailLayout"
         android:layout_width="match_parent"
-        android:layout_height="234dp"
+        android:layout_height="232dp"
         android:background="#E6E6FA"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
