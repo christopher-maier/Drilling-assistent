@@ -8,6 +8,7 @@ import android.graphics.Rect;
 import android.graphics.drawable.shapes.RectShape;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
@@ -49,15 +50,23 @@ public class Canvas extends View{
     protected void onDraw(android.graphics.Canvas canvas) {
         canvas.drawColor(Color.parseColor("#43516c"));
 
+        double ratio = width / length;
+        length = 900;
+        width = length * ratio;
+
+
         Rect rect = new Rect();
         rect.left = (int) ((canvas.getWidth() - length) / 2);
         rect.top = (int) ((canvas.getHeight() - width) / 2);
-        rect.right = rect.left + 900;
-        rect.bottom = rect.top + 700;
+        rect.right = (int) (rect.left + length);
+        rect.bottom = (int) (rect.top + width);
+
+        Log.d("DRAW","Rect: LEFT="+rect.left+" TOP="+rect.top+" RIGHT="+rect.right+" BOTTOM="+rect.bottom);
+
 
         Paint paint = new Paint();
-        paint.setColor(Color.parseColor("#cc6699"));
-
+        paint.setColor(Color.WHITE);
+        //paint.setColor(Color.parseColor("#cc6699"));
         canvas.drawRect(rect, paint);
 
     }

@@ -9,6 +9,7 @@ import android.provider.ContactsContract;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.util.AttributeSet;
 import android.view.Menu;
 import android.view.MotionEvent;
@@ -41,6 +42,11 @@ public class Main2Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
 
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar_main);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+
         Intent intent = getIntent();
         length = intent.getIntExtra(MainActivity.EXTRA_NUMBER0, 0);
         TextView text_length = (TextView) findViewById(R.id.text_length);
@@ -58,15 +64,15 @@ public class Main2Activity extends AppCompatActivity {
 
         holes = intent.getIntExtra(MainActivity.EXTRA_NUMBER2, 0);
         TextView text_holes = (TextView) findViewById(R.id.text_holes);
-        text_holes.setText("max number of holes: ");
+        text_holes.setText("number of holes: ");
 
         distance = intent.getIntExtra(MainActivity.EXTRA_NUMBER3, 0);
         TextView text_distance = (TextView) findViewById(R.id.text_distance);
-        text_distance.setText("max distance between holes: ");
+        text_distance.setText("distance between holes: ");
 
         diameter = intent.getIntExtra(MainActivity.EXTRA_NUMBER4, 0);
         TextView text_diameter = (TextView) findViewById(R.id.text_diameter);
-        text_diameter.setText("max diameter: ");
+        text_diameter.setText("diameter of holes: ");
 
         result_holes = (TextView) findViewById(R.id.result_holes);
         result_distance = (TextView) findViewById(R.id.result_distance);
