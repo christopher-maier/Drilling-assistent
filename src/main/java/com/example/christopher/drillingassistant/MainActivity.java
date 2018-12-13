@@ -122,8 +122,11 @@ public class MainActivity extends AppCompatActivity {
         if(radioButton.getId() == holes.getId()){
             int number_length = Integer.parseInt(input_length.getText().toString());
             int number_width = Integer.parseInt(input_width.getText().toString());
+            int number_edgeLength = Integer.parseInt(input_edgeLength.getText().toString());
+            int number_edgeWidth = Integer.parseInt(input_edgeWidth.getText().toString());
             int number_distance = Integer.parseInt(input_distance.getText().toString());
             int number_diameter = Integer.parseInt(input_diameter.getText().toString());
+
             int i = 1;
             intent.putExtra(EXTRA_NUMBER0, number_length);
             intent.putExtra(EXTRA_NUMBER1, number_width);
@@ -133,6 +136,8 @@ public class MainActivity extends AppCompatActivity {
 
             dataObject.setLength(number_length);
             dataObject.setWidth(number_width);
+            dataObject.setDistanceToLength(number_edgeLength);
+            dataObject.setDistanceToWidth(number_edgeWidth);
             dataObject.setHoles(0);
             dataObject.setDistance(number_distance);
             dataObject.setDiameter(number_diameter);

@@ -26,6 +26,8 @@ import android.widget.Toast;
 
 public class Main2Activity extends AppCompatActivity {
 
+    DataObject dataObject = DataObject.getInstance();
+
     double length;
     double width;
     double holes;
@@ -122,6 +124,7 @@ public class Main2Activity extends AppCompatActivity {
         if(NK != 0) {
             Toast.makeText(this, NK + "mm müssen gleichmäßig auf die Abstände verteilt werden!", Toast.LENGTH_SHORT).show();
         }
+        dataObject.setHoles(i);
         return i;
     }
     public double maxDistance(double length, double width, double diameter, double holes) {
@@ -132,6 +135,7 @@ public class Main2Activity extends AppCompatActivity {
         }else {
             j = ((length - (holes * diameter)) / (holes +2));
         }
+        dataObject.setDistance(j);
         return j;
     }
     public double maxDiameter(double length, double width, double distance, double holes) {
@@ -142,6 +146,7 @@ public class Main2Activity extends AppCompatActivity {
         }else {
             i = ((distance * (holes + 2) - length)/ (-holes));
         }
+        dataObject.setDiameter(i);
         return i;
     }
 

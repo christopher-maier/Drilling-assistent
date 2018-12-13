@@ -8,6 +8,24 @@ public class DataObject {
     private double holes = 0;
     private double distance = 0;
     private double diameter = 0;
+    private double distanceToLength = 0;
+    private double distanceToWidth = 0;
+
+    public double getDistanceToLength() {
+        return distanceToLength;
+    }
+
+    public void setDistanceToLength(double distanceToLength) {
+        this.distanceToLength = distanceToLength;
+    }
+
+    public double getDistanceToWidth() {
+        return distanceToWidth;
+    }
+
+    public void setDistanceToWidth(double distanceToWidth) {
+        this.distanceToWidth = distanceToWidth;
+    }
 
     //make the constructor private so that this class cannot be
     //instantiated
@@ -64,6 +82,8 @@ public class DataObject {
         System.out.println("diameter= " + diameter);
         System.out.println("width= " + width);
         System.out.println("length= " + length);
+        System.out.println("distanceToLength= " + distanceToLength);
+        System.out.println("distanceToWidth= " + distanceToWidth);
     }
 
 }

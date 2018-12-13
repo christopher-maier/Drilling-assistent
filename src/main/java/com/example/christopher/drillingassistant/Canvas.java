@@ -18,6 +18,8 @@ public class Canvas extends View{
 
     double length = dataObject.getLength();
     double width = dataObject.getWidth();
+    double edge_length = dataObject.getDistanceToLength();
+    double edge_width = dataObject.getDistanceToWidth();
     double holes = dataObject.getHoles();
     double distance = dataObject.getDistance();
     double diameter = dataObject.getDiameter();
@@ -53,21 +55,30 @@ public class Canvas extends View{
         double ratio = width / length;
         length = 900;
         width = length * ratio;
+        int abstandToLength = (int) ((canvas.getWidth() - length) / 2);
+        int abstandToWidth = (int) ((canvas.getHeight() - width) / 2);
 
 
         Rect rect = new Rect();
-        rect.left = (int) ((canvas.getWidth() - length) / 2);
-        rect.top = (int) ((canvas.getHeight() - width) / 2);
+        rect.left = abstandToLength;
+        rect.top = abstandToWidth;
         rect.right = (int) (rect.left + length);
         rect.bottom = (int) (rect.top + width);
 
         Log.d("DRAW","Rect: LEFT="+rect.left+" TOP="+rect.top+" RIGHT="+rect.right+" BOTTOM="+rect.bottom);
 
 
-        Paint paint = new Paint();
-        paint.setColor(Color.WHITE);
+        Paint paint_rect = new Paint();
+        paint_rect.setColor(Color.WHITE);
+        Paint paint_circle = new Paint();
+        //paint_circle.setColor(Color.parseColor("#43516c"));
         //paint.setColor(Color.parseColor("#cc6699"));
-        canvas.drawRect(rect, paint);
+        paint_circle.setColor(Color.GREEN);
+
+        canvas.drawRect(rect, paint_rect);
+        for(int i = 0; i <= (int) holes; i++) {
+            canvas.drawCircle((float) ((abstandToLength + edge_length + diameter) + (i * (distance + diameter))), (float) (abstandToWidth + edge_width) + 100, (float) diameter, paint_circle);
+        }
 
     }
 }
