@@ -10,6 +10,15 @@ public class DataObject {
     private double diameter = 0;
     private double distanceToLength = 0;
     private double distanceToWidth = 0;
+    private double modeCase = 0;
+
+    public double getModeCase() {
+        return modeCase;
+    }
+
+    public void setModeCase(double modeCase) {
+        this.modeCase = modeCase;
+    }
 
     public double getDistanceToLength() {
         return distanceToLength;
