@@ -205,9 +205,10 @@ public class MainActivity extends AppCompatActivity {
             String string_edgeLength = input_edgeLength.getText().toString().trim();
             String string_edgeWidth = input_edgeWidth.getText().toString().trim();
 
-            holes.setEnabled(!string_length.isEmpty() && !string_width.isEmpty() && !string_edgeLength.isEmpty() && !string_edgeWidth.isEmpty());
-            distance.setEnabled(!string_length.isEmpty() && !string_width.isEmpty() && !string_edgeLength.isEmpty() && !string_edgeWidth.isEmpty());
-            diameter.setEnabled(!string_length.isEmpty() && !string_width.isEmpty() && !string_edgeLength.isEmpty() && !string_edgeWidth.isEmpty());
+
+            holes.setEnabled(!string_length.isEmpty() && !string_width.isEmpty() && !string_edgeLength.isEmpty() && !string_edgeWidth.isEmpty() && !string_length.equals("0") && !string_width.equals("0"));
+            distance.setEnabled(!string_length.isEmpty() && !string_width.isEmpty() && !string_edgeLength.isEmpty() && !string_edgeWidth.isEmpty()&& !string_length.equals("0") && !string_width.equals("0"));
+            diameter.setEnabled(!string_length.isEmpty() && !string_width.isEmpty() && !string_edgeLength.isEmpty() && !string_edgeWidth.isEmpty()&& !string_length.equals("0") && !string_width.equals("0"));
         }
 
         @Override
@@ -227,7 +228,12 @@ public class MainActivity extends AppCompatActivity {
             String string_distance = input_distance.getText().toString().trim();
             String string_diameter = input_diameter.getText().toString().trim();
 
-            buttonApply.setEnabled(!string_distance.isEmpty() && !string_diameter.isEmpty());
+            int number_width = Integer.parseInt(input_width.getText().toString());
+            int number_edgeWidth = Integer.parseInt(input_edgeWidth.getText().toString());
+            int number_diameter = Integer.parseInt(input_diameter.getText().toString());
+
+            buttonApply.setEnabled(!string_distance.isEmpty() && !string_diameter.isEmpty() && !string_distance.equals("0") && !string_diameter.equals("0"));
+
         }
 
         @Override
@@ -247,7 +253,8 @@ public class MainActivity extends AppCompatActivity {
             String string_holes = input_holes.getText().toString().trim();
             String string_diameter = input_diameter.getText().toString().trim();
 
-            buttonApply.setEnabled(!string_holes.isEmpty() && !string_diameter.isEmpty());
+            buttonApply.setEnabled(!string_holes.isEmpty() && !string_diameter.isEmpty() && !string_holes.equals("0") && !string_diameter.equals("0"));
+
         }
 
         @Override
@@ -267,7 +274,8 @@ public class MainActivity extends AppCompatActivity {
             String string_holes = input_holes.getText().toString().trim();
             String string_distance = input_distance.getText().toString().trim();
 
-            buttonApply.setEnabled(!string_holes.isEmpty() && !string_distance.isEmpty());
+            buttonApply.setEnabled(!string_holes.isEmpty() && !string_distance.isEmpty() && !string_holes.equals("0") && !string_distance.equals("0"));
+
         }
 
         @Override
