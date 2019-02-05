@@ -1,5 +1,6 @@
 package com.example.christopher.drillingassistant;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
@@ -9,14 +10,20 @@ import android.graphics.drawable.shapes.RectShape;
 import android.os.Build;
 import android.support.annotation.Nullable;
 import android.support.annotation.RequiresApi;
+import android.support.constraint.ConstraintLayout;
+import android.text.Layout;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 public class Canvas extends View{
 
     DataObject dataObject = DataObject.getInstance();
+    DataObjectV2 dataObjectV2 = DataObjectV2.getInstance();
 
     public Canvas(Context context) {
         super(context);
@@ -53,7 +60,11 @@ public class Canvas extends View{
         double holes = dataObject.getHoles();
         double distance = dataObject.getDistance();
         double diameter = dataObject.getDiameter();
-        int modeCase = (int) dataObject.getModeCase();
+
+        double holesV2 = dataObjectV2.getHoles();
+        double distanceV2 = dataObjectV2.getDistance();
+        double diameterV2 = dataObjectV2.getDiameter();
+
 
         canvas.drawColor(Color.parseColor("#43516c"));
 
@@ -62,6 +73,8 @@ public class Canvas extends View{
         //width = length * ratio;
         int abstandToLength = (int) ((canvas.getWidth() - length) / 2);
         int abstandToWidth = (int) ((canvas.getHeight() - width) / 2);
+        dataObject.setDl(abstandToLength);
+        dataObject.setDw(abstandToWidth);
 
 
         Rect rect = new Rect();
@@ -81,34 +94,29 @@ public class Canvas extends View{
         // paint_circle.setColor(Color.GREEN);
 
         canvas.drawRect(rect, paint_rect);
+        Paint paint = new Paint();
+        paint.setColor(Color.parseColor("#3B66B8"));
+        paint.setTextSize(35);
 
-       // double ratioLength = length * ratio;
-       // double ratioWidth = width * ratio;
-       // double ratioEdgeLength = edge_length * ratio;
-       // double ratioEdgeWidth = edge_width * ratio;
-       // double ratioDistance = distance * ratio;
-       // double ratioDiameter = diameter * ratio;
-
-       // Log.d("DRAW","ratio: "+ratio+" length: "+ratioLength+" width: ="+ratioWidth);
-       // Log.d("DRAW","abstandLength: "+abstandToLength+" abstandWidth: "+abstandToWidth);
-       // Log.d("DRAW","edgeLength: "+ratioEdgeLength+" edgeWidth: "+ratioEdgeWidth+" distance: ="+ratioDiameter + "diameter: " + ratioDiameter);
-
-        if(modeCase == 1){
-            for(int i = 0; i < holes; i++){
-                canvas.drawCircle((float) ((float) (abstandToLength + edge_length + diameter/2) + (i * (distance + diameter))), (float) (abstandToWidth + edge_width + diameter/2), (float) diameter/2, paint_circle );
-            }
+        //cirles horizontal
+        for(int i = 0; i < holes; i++) {
+            canvas.drawCircle((float) ((abstandToLength + edge_length + (diameter/2) + (i * (distance + diameter)))), (float) (abstandToWidth + edge_width + (diameter/ 2)), (float) diameter, paint_circle);
         }
 
-        if(modeCase == 2){
-            for(int i = 0; i < holes; i++){
-                canvas.drawCircle((float) ((float) (abstandToLength + edge_length + diameter/2) + (i * (distance + diameter))), (float) (abstandToWidth + edge_width + diameter/2), (float) diameter/2, paint_circle );
-            }
+        //circles vertical
+        for(int i = 0; i < holesV2; i++) {
+            canvas.drawCircle((float) (abstandToLength + edge_length + (diameter/ 2)), (float) ((abstandToWidth + edge_width + (diameter/2) + (i * (distance + diameter)))), (float) diameter, paint_circle);
+        }
+        /*
+        //labels horizontal
+        for(int i = 0; i < holes - 1; i++) {
+            canvas.drawText("" + (int) distance, (float) ((abstandToLength + edge_length + (diameter * 1.5) + (i * (distance + diameter)))), (float) (abstandToWidth + edge_width + (diameter/1.3)), paint);
         }
 
-        if(modeCase == 3){
-            for(int i = 0; i < holes; i++){
-                canvas.drawCircle((float) ((float) (abstandToLength + edge_length + diameter/2) + (i * (distance + diameter))), (float) (abstandToWidth + edge_width + diameter/2), (float) diameter/2, paint_circle );
-            }
-        }
+        //circles vertical
+        for(int i = 0; i < holesV2 - 1; i++) {
+            canvas.drawText("" + (int) distance, (float) (abstandToLength + edge_length * 0.8), (float) ((abstandToWidth + edge_width + (diameter * 2.5) + (i * (distance + diameter)))), paint);
+        }*/
+
     }
 }

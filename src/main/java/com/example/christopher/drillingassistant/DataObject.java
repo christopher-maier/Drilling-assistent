@@ -11,8 +11,28 @@ public class DataObject {
     private double distanceToLength = 0;
     private double distanceToWidth = 0;
     private double modeCase = 0;
+    private double dl = 0;
+    private double dw = 0;
+
+    public double getDw() {
+        return dw;
+    }
+
+    public void setDw(double dw) {
+        this.dw = dw;
+    }
+
+    public double getDl() {
+
+        return dl;
+    }
+
+    public void setDl(double dl) {
+        this.dl = dl;
+    }
 
     public double getModeCase() {
+
         return modeCase;
     }
 

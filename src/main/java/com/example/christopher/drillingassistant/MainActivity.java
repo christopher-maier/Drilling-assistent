@@ -187,6 +187,7 @@ public class MainActivity extends AppCompatActivity {
             dataObject.setHoles(number_holes);
             dataObject.setDistance(number_distance);
             dataObject.setDiameter(0);
+
         }
         startActivity(intent);
 
@@ -227,10 +228,6 @@ public class MainActivity extends AppCompatActivity {
         public void onTextChanged(CharSequence s, int start, int before, int count) {
             String string_distance = input_distance.getText().toString().trim();
             String string_diameter = input_diameter.getText().toString().trim();
-
-            int number_width = Integer.parseInt(input_width.getText().toString());
-            int number_edgeWidth = Integer.parseInt(input_edgeWidth.getText().toString());
-            int number_diameter = Integer.parseInt(input_diameter.getText().toString());
 
             buttonApply.setEnabled(!string_distance.isEmpty() && !string_diameter.isEmpty() && !string_distance.equals("0") && !string_diameter.equals("0"));
 
