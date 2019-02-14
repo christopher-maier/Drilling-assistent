@@ -6,4 +6,6 @@
     <color name="colordefPrimary">#3F51B5</color>
     <color name="colordefPrimaryDark">#303f9f</color>
     <color name="colordefAccent">#FF4081</color>
+    <color name="pureWhite">#FFFFFF</color>
+    <color name="transparentWhite">#cccccc</color>
 </resources>

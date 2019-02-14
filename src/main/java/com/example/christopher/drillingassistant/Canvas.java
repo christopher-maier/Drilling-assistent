@@ -107,7 +107,7 @@ public class Canvas extends View{
         for(int i = 0; i < holesV2; i++) {
             canvas.drawCircle((float) (abstandToLength + edge_length + (diameter/ 2)), (float) ((abstandToWidth + edge_width + (diameter/2) + (i * (distance + diameter)))), (float) diameter, paint_circle);
         }
-        /*
+
         //labels horizontal
         for(int i = 0; i < holes - 1; i++) {
             canvas.drawText("" + (int) distance, (float) ((abstandToLength + edge_length + (diameter * 1.5) + (i * (distance + diameter)))), (float) (abstandToWidth + edge_width + (diameter/1.3)), paint);
@@ -116,7 +116,7 @@ public class Canvas extends View{
         //circles vertical
         for(int i = 0; i < holesV2 - 1; i++) {
             canvas.drawText("" + (int) distance, (float) (abstandToLength + edge_length * 0.8), (float) ((abstandToWidth + edge_width + (diameter * 2.5) + (i * (distance + diameter)))), paint);
-        }*/
+        }
 
     }
 }

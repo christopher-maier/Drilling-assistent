@@ -79,6 +79,9 @@ public class Main2Activity extends AppCompatActivity {
         TextView text_edge = (TextView) findViewById(R.id.user_edge);
         text_edge.setText("distance to edge:");
 
+        distanceToLength = dataObject.getDistanceToLength();
+        distanceToWidth = dataObject.getDistanceToWidth();
+
         TextView user_edge_length = (TextView) findViewById(R.id.edge_length);
         user_edge_length.setText("" + (int) distanceToLength);
 
@@ -115,11 +118,9 @@ public class Main2Activity extends AppCompatActivity {
         holes = dataObject.getHoles();
         distance = dataObject.getDistance();
         diameter = dataObject.getDiameter();
-        distanceToLength = dataObject.getDistanceToLength();
-        distanceToWidth = dataObject.getDistanceToWidth();
         dl = dataObject.getDl();
         dw = dataObject.getDw();
-
+        /*
         LinearLayout l1 = findViewById(R.id.layout1);
         for(int i = 0; i < holes - 1; i++) {
             TextView t1 = new TextView(this);
@@ -127,10 +128,10 @@ public class Main2Activity extends AppCompatActivity {
             t1.setTextSize(20);
             t1.setTextColor(Color.RED);
             t1.setX((float) ((dl + distanceToLength + (diameter * 1.5) + (i * (distance + diameter)))));
-            t1.setY((float) (dw + distanceToWidth + (diameter/1.3)));
-            //t1.setRotationX(270);
+            t1.setY(900);
+            t1.setY(-71 * i);
             l1.addView(t1);
-        }
+        }*/
     }
 
     public void userRestriction(){
@@ -187,7 +188,7 @@ public class Main2Activity extends AppCompatActivity {
         i = ((length - (2 * distanceToLength)) / (diameter + distance));
 
         long j = Math.round(i);
-        if(((length - (2 * distanceToWidth)) - ((j * diameter * distance))) >= diameter){
+        if(((length - (2 * distanceToLength)) - ((j * (diameter + distance)))) >= diameter){
             j = j +1;
         }
         Log.d("DRAW","J =" + j);
@@ -215,7 +216,7 @@ public class Main2Activity extends AppCompatActivity {
         double i;
         i = ((length - (2 * distanceToWidth)) / (diameter + distance));
         long j = Math.round(i);
-        if(((length - (2 * distanceToWidth)) - ((j * diameter * distance))) > diameter){
+        if(((length - (2 * distanceToWidth)) - ((j *  (diameter + distance)))) >= diameter){
         j = j +1;
         }
         Log.d("DRAW","J =" + j);
