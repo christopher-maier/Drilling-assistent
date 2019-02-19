@@ -19,28 +19,33 @@ public class SliderAdpater extends PagerAdapter{
         this.context = context;
     }
 
-    //Sources:
-    //Clipboard: <div>Icons made by <a href="https://www.flaticon.com/authors/smashicons" title="Smashicons">Smashicons</a> from <a href="https://www.flaticon.com/" 			    title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" 			    title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
-    //Ruler: <div>Icons made by <a href="https://www.flaticon.com/authors/smashicons" title="Smashicons">Smashicons</a> from <a href="https://www.flaticon.com/" 			    title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" 			    title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
-    //Compass: <div>Icons made by <a href="https://www.flaticon.com/authors/smashicons" title="Smashicons">Smashicons</a> from <a href="https://www.flaticon.com/" 			    title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" 			    title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
+    /*Sources:
+    Compass: <div>Icons made by <a href="https://www.flaticon.com/authors/smashicons" title="Smashicons">Smashicons</a> from <a href="https://www.flaticon.com/" 			    title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" 			    title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
+    Ruler: <div>Icons made by <a href="https://www.flaticon.com/authors/smashicons" title="Smashicons">Smashicons</a> from <a href="https://www.flaticon.com/" 			    title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" 			    title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
+    Calculator:<div>Icons made by <a href="https://www.flaticon.com/authors/smashicons" title="Smashicons">Smashicons</a> from <a href="https://www.flaticon.com/" 			    title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" 			    title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
+    Clipboard: <div>Icons made by <a href="https://www.flaticon.com/authors/smashicons" title="Smashicons">Smashicons</a> from <a href="https://www.flaticon.com/" 			    title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" 			    title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
+   */
     public int[] slider_images = {
 
-        R.drawable.ruler,
         R.drawable.compass,
+        R.drawable.ruler,
+        R.drawable.calculator,
         R.drawable.clipboard
 
     };
 
     public String[] slider_heading = {
 
-            "BASIC DATA",
-            "CALCULATIONS",
-            "COMPLETE THE DATA"
+            "WELCOME TO DRILLING ASSISTANT",
+            "1. BASIC DATA",
+            "2. CALCULATIONS",
+            "3. COMPLETE THE DATA"
 
     };
 
     public String[] slider_descriptions = {
 
+            "You have to drill holes in a board? The eternal calculation is finally over. With Drilling Assistant you can now easily calculate all the necessary dimensions for your holes. And all in just 3 steps.",
             "First you have to enter the dimensions of your worktop. For this purpose, the uppermost section of the input screen is there. Let us know the length and width of your board and, if necessary, the corresponding edge distance.",
             "Choose between 3 different calculation methods:\n\n" +
                     "√ Maximum number of holes,\n" +
