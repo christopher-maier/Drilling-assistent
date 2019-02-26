@@ -6,6 +6,8 @@ you will find a summary what the project "Drilling-Assistent" is about. The fina
 Thank you
 Christopher I. Maier (Developer)
 
+____________________________________________________________________________________________________________________________________
+
 für weitere Informationen besuchen Sie bitte das Vezeichnis "Docs" - "Wintersemester" - "PDF´s" - "Abschlussbericht".
 Die finale Version der Applikation wird vorraussichtlich Ende März 2019 online erscheinen. 
 
