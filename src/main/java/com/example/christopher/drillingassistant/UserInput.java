@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -45,6 +46,7 @@ public class UserInput extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_FULLSCREEN | View.SYSTEM_UI_FLAG_IMMERSIVE | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar2);
         setSupportActionBar(toolbar);
@@ -74,6 +76,7 @@ public class UserInput extends AppCompatActivity {
 
         input_length = findViewById(R.id.input_length);
         input_length.addTextChangedListener(boardInputTextWatcher);
+        input_length.requestFocus();
 
         input_width = findViewById(R.id.input_width);
         input_width.addTextChangedListener(boardInputTextWatcher);
@@ -84,6 +87,7 @@ public class UserInput extends AppCompatActivity {
         input_edgeWidth = findViewById(R.id.input_edgeWidth);
         input_edgeWidth.addTextChangedListener(boardInputTextWatcher);
     }
+
     @Override
     public void finish(){
         super.finish();
@@ -292,4 +296,16 @@ public class UserInput extends AppCompatActivity {
 
         }
     };
+
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            // Respond to the action bar's Up/Home button
+            case android.R.id.home:
+                finish();
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
 }

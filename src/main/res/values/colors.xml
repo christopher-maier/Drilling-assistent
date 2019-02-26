@@ -2,11 +2,14 @@
 <resources>
     <color name="colorPrimary">#43516c</color>
     <color name="colorPrimaryDark">#333e52</color>
-    <color name="colorAccent">#D6C218</color>
+    <color name="colorAccent">#d6c218</color>
     <color name="colordefPrimary">#3F51B5</color>
     <color name="colordefPrimaryDark">#303f9f</color>
     <color name="colordefAccent">#FF4081</color>
-    <color name="pureWhite">#FFFFFF</color>
+    <color name="pureWhite">#ffffff</color>
     <color name="transparentWhite">#cccccc</color>
     <color name="royalBlack">#1B212B</color>
+    <color name="pastell">#e5e8c7</color>
+
+    <color name="black_overlay">#66000000</color>
 </resources>

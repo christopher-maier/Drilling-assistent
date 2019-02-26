@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -33,10 +34,14 @@ public class Visualization extends AppCompatActivity {
     TextView result_distance_V2;
     TextView result_diameter_V2;
 
+    private boolean trans=true;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        trans = false;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
+        getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_FULLSCREEN | View.SYSTEM_UI_FLAG_IMMERSIVE | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar_main);
         setSupportActionBar(toolbar);
@@ -101,7 +106,7 @@ public class Visualization extends AppCompatActivity {
         dl = dataObject.getDl();
         dw = dataObject.getDw();
 
-        LinearLayout l1 = findViewById(R.id.layout1);
+      /*  LinearLayout l1 = findViewById(R.id.layout1);
         for(int i = 0; i < holes - 1; i++) {
             TextView t1 = new TextView(this);
             t1.setText("" + (int) distance);
@@ -111,12 +116,12 @@ public class Visualization extends AppCompatActivity {
             t1.setY(900);
            // t1.setY(-71 * i);
             l1.addView(t1);
-        }
+        }*/
     }
 
     @Override
     public void finish(){
-        super.finish();
+        finish();
         overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
     }
 
@@ -223,6 +228,20 @@ public class Visualization extends AppCompatActivity {
 
         dataObjectV2.setDiameter(i);
         return i;
+    }
+
+    @Override
+    protected void onPause() {
+        if (trans) {
+            overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
+        }
+        super.onPause();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        trans=true;
     }
 
 }

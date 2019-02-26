@@ -10,11 +10,22 @@
     <TextView
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="54dp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="16dp"
-        android:text="by Christopher Maier"
+        android:gravity="center"
+        android:text="Christopher I. Maier, 2019"
+        android:textAppearance="@android:style/TextAppearance.Widget.TabWidget" />
+
+    <TextView
+        android:id="@+id/textView16"
+        android:layout_width="wrap_content"
+        android:layout_height="45dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="28dp"
+        android:gravity="center"
+        android:text="developed and designed by  "
         android:textAppearance="@android:style/TextAppearance.Widget.TabWidget" />
 
     <TextView
@@ -24,9 +35,10 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="139dp"
-        android:gravity="center_horizontal"
+        android:gravity="center"
         android:text="DRILLING ASSISTANT"
         android:textAppearance="@android:style/TextAppearance.DeviceDefault.Large"
+        android:textColor="@android:color/background_light"
         android:textStyle="bold" />
 
     <ImageView
@@ -36,5 +48,8 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="31dp"
-        android:src="@drawable/drawing" />
+        android:src="@drawable/drawing" /><![CDATA[
+
+    android:textAppearance="@android:style/TextAppearance.Widget.TabWidget" />
+]]>
 </RelativeLayout>
