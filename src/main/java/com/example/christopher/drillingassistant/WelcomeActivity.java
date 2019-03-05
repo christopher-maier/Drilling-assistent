@@ -116,7 +116,12 @@ public class WelcomeActivity extends AppCompatActivity {
                 nextBtn.setEnabled(true);
                 previouosBtn.setEnabled(true);
                 previouosBtn.setVisibility(View.VISIBLE);
-
+                nextBtn.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        slideViewPager.setCurrentItem(currentPage + 1);
+                    }
+                });
                 nextBtn.setText("Next");
                 previouosBtn.setText("Back");
             }

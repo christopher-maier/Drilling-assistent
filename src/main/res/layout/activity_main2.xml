@@ -55,6 +55,7 @@
             android:layout_marginTop="8dp"
             android:text="TextView"
             android:textColor="@android:color/background_light"
+            android:textSize="18sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.709"
@@ -76,6 +77,7 @@
             android:layout_marginTop="8dp"
             android:text="TextView"
             android:textColor="@android:color/background_light"
+            android:textSize="18sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.709"
@@ -97,6 +99,7 @@
             android:layout_marginTop="8dp"
             android:text="TextView"
             android:textColor="@android:color/background_light"
+            android:textSize="18sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.709"
@@ -193,6 +196,7 @@
             android:layout_marginTop="8dp"
             android:text="TextView"
             android:textColor="@android:color/background_light"
+            android:textSize="18sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.709"
@@ -222,7 +226,7 @@
         <TextView
             android:id="@+id/user_width"
             android:layout_width="wrap_content"
-            android:layout_height="18dp"
+            android:layout_height="26dp"
             android:layout_marginBottom="8dp"
             android:layout_marginEnd="8dp"
             android:layout_marginLeft="8dp"
@@ -231,12 +235,13 @@
             android:layout_marginTop="8dp"
             android:text="TextView"
             android:textColor="@android:color/background_light"
+            android:textSize="18sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.94"
+            app:layout_constraintHorizontal_bias="0.937"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.313" />
+            app:layout_constraintVertical_bias="0.316" />
 
         <TextView
             android:id="@+id/result_holes_V2"
@@ -250,6 +255,7 @@
             android:layout_marginTop="8dp"
             android:text="?"
             android:textColor="@android:color/background_light"
+            android:textSize="18sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.95"
@@ -269,6 +275,7 @@
             android:layout_marginTop="8dp"
             android:text="?"
             android:textColor="@android:color/background_light"
+            android:textSize="18sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.95"
@@ -288,6 +295,7 @@
             android:layout_marginTop="8dp"
             android:text="?"
             android:textColor="@android:color/background_light"
+            android:textSize="18sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.95"
@@ -344,13 +352,13 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             android:text="TextView"
+            android:textColor="@android:color/background_light"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.025"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.315"
-            android:textColor="@android:color/background_light" />
+            app:layout_constraintVertical_bias="0.315" />
 
         <TextView
             android:id="@+id/edge_length"
@@ -363,6 +371,7 @@
             android:layout_marginTop="8dp"
             android:text="TextView"
             android:textColor="@android:color/background_light"
+            android:textSize="18sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.709"
@@ -382,6 +391,7 @@
             android:layout_marginTop="8dp"
             android:text="TextView"
             android:textColor="@android:color/background_light"
+            android:textSize="18sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.941"
@@ -406,6 +416,18 @@
         app:layout_constraintGuide_percent="0.0" />
 
     <LinearLayout
+        android:id="@+id/layout2"
+        android:layout_width="match_parent"
+        android:layout_height="259dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginTop="8dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.164"
+        tools:layout_editor_absoluteX="0dp"></LinearLayout>
+
+    <LinearLayout
         android:id="@+id/layout1"
         android:layout_width="0dp"
         android:layout_height="0dp"
@@ -413,6 +435,8 @@
         app:layout_constraintBottom_toTopOf="@+id/DetailLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/guideline"
-        app:layout_constraintTop_toTopOf="@+id/canvas"></LinearLayout>
+        app:layout_constraintTop_toTopOf="@+id/canvas">
+
+    </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>

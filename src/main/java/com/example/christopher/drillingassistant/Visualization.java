@@ -106,17 +106,40 @@ public class Visualization extends AppCompatActivity {
         dl = dataObject.getDl();
         dw = dataObject.getDw();
 
-      /*  LinearLayout l1 = findViewById(R.id.layout1);
-        for(int i = 0; i < holes - 1; i++) {
+        //labels vertical
+        LinearLayout l1 = findViewById(R.id.layout1);
+        double result = distanceToWidth +  (diameter / 2);
+        double result2 = distance + diameter;
+        for(int i = 0; i < holes; i++) {
             TextView t1 = new TextView(this);
-            t1.setText("" + (int) distance);
-            t1.setTextSize(20);
-            t1.setTextColor(Color.RED);
-            t1.setX((float) ((dl + distanceToLength + (diameter * 1.5) + (i * (distance + diameter)))));
-            t1.setY(900);
-           // t1.setY(-71 * i);
+            t1.setText("" + (int) result );
+            if(i > 0) {
+                t1.setText("" + (int)result2);
+            }
+            t1.setTextSize(15);
+            t1.setTextColor(Color.parseColor("#d6c218"));
+            t1.setX((float) (dw));
+            t1.setY((float) ((distanceToWidth + dw + diameter + 2.1 + (i * (distance)))));
             l1.addView(t1);
-        }*/
+
+        }
+
+        //labels horizontal
+        LinearLayout l2 = findViewById(R.id.layout2);
+        double result3 = distanceToWidth + (diameter / 2);
+        double result4 = distance + diameter;
+        for(int i = 0; i < holes; i++) {
+            TextView t2 = new TextView(this);
+            t2.setText("" + (int) result3);
+            if(i > 0){
+                t2.setText("" + (int) result4);
+            }
+            t2.setTextSize(15);
+            t2.setTextColor(Color.parseColor("#d6c218"));
+            t2.setX((float) (distanceToLength + dl + diameter + (i * (distance / 2.2) )));
+            t2.setY((float) (distanceToWidth + dw + (diameter / 2.5)));
+            l2.addView(t2);
+        }
     }
 
     @Override
